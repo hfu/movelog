@@ -2,4 +2,5 @@
 *.geojsons
 *.pmtiles
 *.mbtiles
-
+*.js
+*.css
