@@ -15,7 +15,7 @@
 <script src="maplibre-gl.js"></script>
 <script src="pmtiles.js"></script>
 <script type="module">
-maplibregl.addProtocol('pmtiles', (new Protocol()).tile)
+maplibregl.addProtocol('pmtiles', (new pmtiles.Protocol()).tile)
 
 document.addEventListener('DOMContentLoaded', function () {
   const map = new maplibregl.Map({
