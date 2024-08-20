@@ -1,6 +1,8 @@
 *.csv
 *.geojsons
+*.geojson
 *.pmtiles
 *.mbtiles
 *.js
 *.css
+lmdb

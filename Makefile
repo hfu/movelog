@@ -11,10 +11,13 @@ TERRAIN22_URL = 'https://data.source.coop/smartmaps/foil4gr1/terrain22.pmtiles'
 PORT = 8080
 
 move:
-	gpspipe -w | ruby togeojsons.rb | uniq >> move.geojsons
+	gpspipe -w | ruby togeojsons.rb
+
+debug:
+	gpspipe -w | ruby togeojsons.rb >> debug.geojsons
 
 pmtiles:
-	head -n -1 move.geojsons |\
+	head -n -1 move.geojsons | egrep -v null |\
 	tippecanoe -f -l ${LAYER} -o ${DST_DIR}/${PMTILES_FILENAME}
 
 download:
@@ -28,3 +31,7 @@ download:
 
 serve: 
 	ruby -run -e httpd docs -p 8000
+
+lmdb.pmtiles:
+	ruby lmdb_to_geojson.rb | tippecanoe -f -o lmdb.pmtiles 
+
